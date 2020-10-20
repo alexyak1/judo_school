@@ -1,7 +1,8 @@
 {% if latest_technic_list %}
 <ul>
     {% for technic in latest_technic_list %}
-    <li><a href="/images/{{ technic.photo }}/">{{ technic.name }}</a></li>
+    <!-- <li><a href="/quiz/{{ technic.id }}/">{{ technic.name }}</a></li> -->
+    <li><a href="{% url 'quiz:detail' technic.id %}">{{ technic.name }}</a></li>
     {% endfor %}
 </ul>
 {% else %}

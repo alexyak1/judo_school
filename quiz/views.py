@@ -14,12 +14,12 @@ def index(request):
 
     return HttpResponse(template.render(context, request))
 
-def delail(request, techniques_id):
+def detail(request, techniques_id):
     try:
         technic = Techniques.objects.get(pk=techniques_id)
     except Techniques.DoesNotExist:
         raise Http404("technic does not exist")
-    return HttpResponse("You are looking at techniq %s." % techniques_id)
+    return render(request, 'quiz/detail.html', {'technic': technic})
 
 def results(request, techniques_id):
     response = "You are looking at the result of question %s."
