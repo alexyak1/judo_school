@@ -1,0 +1,9 @@
+{% if latest_technic_list %}
+<ul>
+    {% for technic in latest_technic_list %}
+    <li><a href="/images/{{ technic.photo }}/">{{ technic.name }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No technics are available.</p>
+{% endif %}
