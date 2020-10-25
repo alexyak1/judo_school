@@ -1,21 +1,17 @@
 <h1>
     {{ technic.name }}</h1>
-<ul>
-    {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }}</li>
-    {% endfor %}
-</ul>
-
-
-
-<h1>{{ technic.name }}</h1>
 
 {% if error_message %}
 <p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="{% url 'quiz:vote' technic.id %}" method="post">
-    {% csrf_token %} {% for choice in technic.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br> {% endfor %}
+    {% csrf_token %}
+    <p>Which belt is it?</p>
+
+    {% for belt in belts %}
+    <input type="radio" name="selected_belt" id="{{belt.id}}" value="{{ belt.belt_color }}">
+    <label for="belt{{ belt.id }}">{{ belt.belt_color }}</label><br> {% endfor %}<br>
+
+
     <input type="submit" value="Vote">
 </form>
