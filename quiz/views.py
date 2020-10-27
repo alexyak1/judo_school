@@ -23,19 +23,11 @@ def detail(request, techniques_id):
         raise Http404("technic does not exist")
     return render(request, 'quiz/detail.html', {'technic': technic, 'belts': belts})
 
-def results(request, techniques_id):
-    response = "You are looking at the result of question %s."
-    return HttpResponse(response % techniques_id)
 
 def vote(request, techniques_id):
-    print("question")
-    # print(request)
-
-
 
     technic = Techniques.objects.get(pk=techniques_id)
     right_belt_color = get_object_or_404(Belt_group, pk=technic.belt_group_id)
-
 
     response = "No, it was technic from: %s belt."
     if str(request.POST['selected_belt']) == str(right_belt_color):
