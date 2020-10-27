@@ -3,17 +3,19 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.http import Http404
 from django.urls import reverse
+from django.views import generic
 
 from .models import Techniques, Belt_group
 
-def index(request):
-    latest_technic_list = Techniques.objects.order_by('-id')[:5]
-    template = loader.get_template('quiz/index.html')
-    context = {
-        'latest_technic_list': latest_technic_list,
-    }
+class IndexView(generic.ListView):
+    template_name = 'quiz/index.html'
+    context_object_name = 'latest_technic_list'
 
-    return HttpResponse(template.render(context, request))
+    def get_queryset(self):
+        """Return the last five technics"""
+        return Techniques.objects.order_by('-id')[:5]
+
+
 
 def detail(request, techniques_id):
     try:
