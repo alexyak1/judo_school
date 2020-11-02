@@ -5,7 +5,6 @@ photosPath = FileSystemStorage(location='/media/photos')
 
 class Techniques(models.Model):
     name = models.CharField(max_length=200)
-    img_url = models.CharField(max_length=200)
     belt_group = models.ForeignKey('Belt_group', on_delete=models.CASCADE)
     photo = models.ImageField(null=True)
     def __str__(self):
