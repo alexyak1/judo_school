@@ -1,3 +1,7 @@
 li a {
     color: green;
 }
+
+body {
+    background: white url("/static/images/o_soto_otoshi.gif") no-repeat;
+}
