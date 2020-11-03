@@ -10,6 +10,10 @@ class Techniques(models.Model):
     def __str__(self):
         return self.name
 
+    def photo_name(self):
+        return self.photo
+    
+
 class Belt_group(models.Model):
     belt_color = models.CharField(max_length=200)
     def __str__(self):

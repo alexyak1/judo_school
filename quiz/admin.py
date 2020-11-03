@@ -12,7 +12,8 @@ class TechniquesAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['belt_group']}),
         ('Techinc info', {'fields': ['name', 'photo']}),
+    ]
 
-        ]
+    list_display = ('name', 'belt_group', 'photo_name')
 
 admin.site.register(Techniques, TechniquesAdmin)
