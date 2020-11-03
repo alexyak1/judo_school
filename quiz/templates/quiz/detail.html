@@ -1,17 +1,18 @@
-<h1>
-    {{ technic.name }}</h1>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}">
 
-{% if error_message %}
+<h1>{{ technic.name }}</h1>
+
+<img class="technic-image" src="/static/images/{{technic.photo}}"> {% if error_message %}
 <p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'quiz:vote' technic.id %}" method="post">
-    {% csrf_token %}
-    <p>Which belt is it?</p>
-
-    {% for belt in belts %}
-    <input type="radio" name="selected_belt" id="{{belt.id}}" value="{{ belt.belt_color }}">
-    <label for="belt{{ belt.id }}">{{ belt.belt_color }}</label><br> {% endfor %}<br>
-
-
-    <input type="submit" value="Vote">
-</form>
+<div class="content">
+    <form action="{% url 'quiz:vote' technic.id %}" method="post">
+        {% csrf_token %}
+        <p> Which belt is it?</p>
+        {% for belt in belts %}
+        <input type="radio" name="selected_belt" id="{{belt.id}}" value="{{ belt.belt_color }}">
+        <label for="belt{{ belt.id }}">{{ belt.belt_color }}</label><br> {% endfor %}<br>
+        <input type="submit" value="Vote">
+    </form>
+</div>

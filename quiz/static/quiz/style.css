@@ -3,5 +3,26 @@ li a {
 }
 
 body {
-    background: white url("/static/images/o_soto_otoshi.gif") no-repeat;
+    background: white url("/static/images/header_kat_judo.jpg") no-repeat;
+    background-position: center top;
+}
+
+h1 {
+    margin-top: 15%;
+    text-align: center;
+}
+
+ul {
+    margin-left: 10%;
+}
+
+.technic-image {
+    display: inline;
+    margin-left: 25%;
+}
+
+.content {
+    margin-left: 55%;
+    position: absolute;
+    top: 15em;
 }

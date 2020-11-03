@@ -13,7 +13,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five technics"""
-        return Techniques.objects.order_by('-id')[:3]
+        return Techniques.objects.order_by('belt_group')
 
 
 

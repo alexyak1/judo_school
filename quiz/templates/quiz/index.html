@@ -1,6 +1,9 @@
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}">
 
-<link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}"> {% if latest_technic_list %}
+<!--  -->
+<h1>Judo technics</h1>
+{% if latest_technic_list %}
 <ul>
     {% for technic in latest_technic_list %}
     <!-- <li><a href="/quiz/{{ technic.id }}/">{{ technic.name }}</a></li> -->
